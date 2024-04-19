@@ -1,6 +1,6 @@
 package ex_240419;
 
-public class Hello {
+public class Hello2 {
 
 	public static void main(String[] args) { 
 		// 규칙1, 메인 함수(메서드)에서 시작하고 끝난다.
