@@ -11,6 +11,8 @@ public class Hello2 {
 		System.out.println("Hello World!");
 		//클래스 파일 만들고, 오늘 먹을 점심
 		
+		System.out.println();
+		System.out.println();
 		
 	}
 
