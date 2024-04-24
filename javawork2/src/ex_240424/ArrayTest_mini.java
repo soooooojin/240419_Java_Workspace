@@ -10,7 +10,7 @@ public class ArrayTest_mini {
 		
 		String intArray[] = new String[5];
 		int max = 0;
-		System.out.println("메뉴 5개 입력 해주세요.");
+		System.out.println("메뉴 6개 입력 해주세요.");
 		
 		for (int i = 0; i < intArray.length; i++) {
 			intArray[i] = scanner.next();
