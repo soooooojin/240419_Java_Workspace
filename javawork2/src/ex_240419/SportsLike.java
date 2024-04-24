@@ -16,7 +16,9 @@ public class SportsLike {
 		
 		System.out.println(Swimming.swimmingStyle);
 //		System.out.println(sportsName.toString()); 
-//		toString을 써도 되지만 memory에 기억되기 때문에 생략가능
+//		toString을 써도 되지만 메모리에 기억되기 때문에 생략가능
+		
+		
 	}
 
 }
