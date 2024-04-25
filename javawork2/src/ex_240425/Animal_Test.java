@@ -21,7 +21,7 @@ public class Animal_Test {
 //		cat1.speakSound("냐용~~");
 //		System.out.println("고양이가 사는 곳 : " + cat1.getPlace());
 		
-		bear b1 = new bear();
+		LEESOOJINbear b1 = new LEESOOJINbear();
 		b1.setName("반달");
 		b1.setAge(3);
 		String[] bearFoodList = {"꿀", "생선","산딸기"};

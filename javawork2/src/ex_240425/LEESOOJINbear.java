@@ -1,6 +1,6 @@
 package ex_240425;
 
-public class bear extends Animal{
+public class LEESOOJINbear extends Animal{
 	
 	private String kindOf;
 	private String color;
