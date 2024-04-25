@@ -1,8 +1,9 @@
 package ex_240425;
 
-public class Cat extends Animal{
+public class Cat extends LEESOOJINAnimal{
 	
 	private String place;
+	
 
 	public String getPlace() {
 		return place;

@@ -24,10 +24,10 @@ public class Animal_Test {
 		LEESOOJINbear b1 = new LEESOOJINbear();
 		b1.setName("반달");
 		b1.setAge(3);
+		b1.setKindOf("반달가슴곰");
+		b1.setColor("검은색");
 		String[] bearFoodList = {"꿀", "생선","산딸기"};
 		b1.setFavoriteFood(bearFoodList);
-		b1.setKindOf("반달가슴곰");
-		b1.setColor("검은색,흰색,갈색");
 		
 		String bearInformation = b1.toString();
 		System.out.println("곰 정보 : " + bearInformation );
@@ -35,6 +35,8 @@ public class Animal_Test {
 		
 		b1.moveAction("쿵쿵쿵! , 투다다닥(나무타기)");
 		b1.speakSound("우어어어어~~");
+		System.out.println("품종 : " + b1.getKindOf());
+		System.out.println("털색 : " + b1.getColor());
 
 		
 	}

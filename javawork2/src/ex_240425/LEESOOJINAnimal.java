@@ -2,16 +2,16 @@ package ex_240425;
 
 import java.util.Arrays;
 
-public class Animal {//클래스로 감싸서 캡슐화
+public class LEESOOJINAnimal {//클래스로 감싸서 캡슐화
 	
 	//멤버
 	private String name;
 	private int age;
 	private String[] favoriteFood;
-	private String kindOf;
-	private String color;
+//	private String kindOf;
+//	private String color;
 	
-	
+
 	//getter/setter  
 	public String getName() {
 		return name;
@@ -31,6 +31,26 @@ public class Animal {//클래스로 감싸서 캡슐화
 	public void setFavoriteFood(String[] favoriteFood) {
 		this.favoriteFood = favoriteFood;
 	}
+
+//	public String getKindOf() {
+//		return kindOf;
+//	}
+//	public void setKindOf(String kindOf) {
+//		this.kindOf = kindOf;
+//	}
+//		public String getColor() {
+//		return color;
+//	}
+//	public void setColor(String color) {
+//		this.color = color;
+//	}
+	
+	
+//	@Override
+//	public String toString() {
+//		return "LEESOOJINAnimal [name=" + name + ", age=" + age + ", favoriteFood=" + Arrays.toString(favoriteFood)
+//				+ ", kindOf=" + kindOf + ", color=" + color + "]";
+//	}
 	
 	
 
@@ -41,7 +61,7 @@ public class Animal {//클래스로 감싸서 캡슐화
 	// 기능은 컴파일러에게 나 이 메서드 재정의했으니 나중에 실행할 때, 확인 잘 해줘라고 메세지 남김. 
 	@Override
 	public String toString() {
-		return "Animal [name=" + name + ", age=" + age + ", favoriteFood=" + Arrays.toString(favoriteFood) + "]";
+		return "Animal [name=" + name +", age=" + age + ", favoriteFood=" + Arrays.toString(favoriteFood) + "]";
 	}
 	
 	public void speakSound(String sound) {

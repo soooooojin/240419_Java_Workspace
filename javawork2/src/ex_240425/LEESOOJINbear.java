@@ -1,20 +1,20 @@
 package ex_240425;
 
-public class LEESOOJINbear extends Animal{
+public class LEESOOJINbear extends LEESOOJINAnimal{
 	
 	private String kindOf;
-	private String color;
+	private String color;	
+	
+	
 	public String getKindOf() {
-		return kindOf;
-	}
+		return kindOf;	}
 	public void setKindOf(String kindOf) {
 		this.kindOf = kindOf;
-	}
+	}	
 	public String getColor() {
-		return color;
+		return color;	
 	}
 	public void setColor(String color) {
 		this.color = color;
-	} 
-	
+	}
 }
