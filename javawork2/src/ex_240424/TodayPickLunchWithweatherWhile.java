@@ -48,6 +48,7 @@ public class TodayPickLunchWithweatherWhile {
 		}
 			
 }
+		
 	public static void main(String[] args) {
 		
 //		출력: 오늘 점심 메뉴 무엇을 먹을까요 프로젝트 , 제목
