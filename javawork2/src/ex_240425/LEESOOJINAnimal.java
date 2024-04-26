@@ -61,15 +61,24 @@ public class LEESOOJINAnimal {//클래스로 감싸서 캡슐화
 	// 기능은 컴파일러에게 나 이 메서드 재정의했으니 나중에 실행할 때, 확인 잘 해줘라고 메세지 남김. 
 	@Override
 	public String toString() {
-		return "Animal [name=" + name +", age=" + age + ", favoriteFood=" + Arrays.toString(favoriteFood) + "]";
+		return "Animal [name=" + name + ", age=" + age + ", favoriteFood=" + Arrays.toString(favoriteFood) + "]";
 	}
 	
-	public void speakSound(String sound) {
+ 	public void speakSound(String sound) {
 		System.out.println("사운드 : " + sound);
 	}
 	public void moveAction(String action) {
 		System.out.println("움직임 : " + action);
 	}
+	
+	
+	public LEESOOJINAnimal(String name, int age, String[] favoriteFood) {
+		super();
+		this.name = name;
+		this.age = age;
+		this.favoriteFood = favoriteFood;
+	}
+	
 	
 	
 }
