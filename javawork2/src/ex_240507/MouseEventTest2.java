@@ -11,9 +11,9 @@ import java.util.Set;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import utill.RandomSelectNumber;
-import utill.eventListener.MyMouseListener;
-import utill.eventListener.MyMouseListener2;
+import util.RandomSelectNumber;
+import util.eventListener.MyMouseListener;
+import util.eventListener.MyMouseListener2;
 
 public class MouseEventTest2 extends JFrame {
 	

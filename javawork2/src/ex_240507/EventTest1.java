@@ -6,7 +6,7 @@ import java.awt.FlowLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 
-import utill.eventListener.MyActionListener;
+import util.eventListener.MyActionListener;
 
 //이벤트 이스너를 처리하는 클래스 만들기. : MyActionListener
 

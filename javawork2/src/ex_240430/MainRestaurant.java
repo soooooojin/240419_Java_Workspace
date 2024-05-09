@@ -1,6 +1,6 @@
 package ex_240430;
 
-import utill.RandomSelectNumber;
+import util.RandomSelectNumber;
 
 public class MainRestaurant {
 

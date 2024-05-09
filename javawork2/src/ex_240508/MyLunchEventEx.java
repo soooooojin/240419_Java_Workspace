@@ -13,7 +13,7 @@ import javax.swing.JCheckBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import utill.RandomSelectNumber;
+import util.RandomSelectNumber;
 
 public class MyLunchEventEx extends JFrame {
 

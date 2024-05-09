@@ -1,4 +1,4 @@
-package protected_3_ex_240426;
+package ex_240426_3;
 
 import ex_240426.B;
 

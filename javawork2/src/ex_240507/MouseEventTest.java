@@ -10,8 +10,8 @@ import java.util.Set;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import utill.RandomSelectNumber;
-import utill.eventListener.MyMouseListener;
+import util.RandomSelectNumber;
+import util.eventListener.MyMouseListener;
 
 
 public class MouseEventTest extends JFrame {

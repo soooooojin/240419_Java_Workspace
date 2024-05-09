@@ -1,15 +1,16 @@
-package utill.eventListener;
+package util.eventListener;
 
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
 import javax.swing.JLabel;
 
-public class MyMouseListener implements MouseListener{
+public class MyMouseListener2 implements MouseListener, MouseMotionListener{
 	
 	private JLabel jLabel;
 	
-	public MyMouseListener(JLabel jLabel) {
+	public MyMouseListener2(JLabel jLabel) {
 		this.jLabel = jLabel;
 	}
 
@@ -31,6 +32,18 @@ public class MyMouseListener implements MouseListener{
 	}
 
 	public void mouseExited(MouseEvent event) {
+	}
+
+	@Override
+	public void mouseDragged(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseMoved(MouseEvent e) {
+		// TODO Auto-generated method stub
+		
 	}
 
 	

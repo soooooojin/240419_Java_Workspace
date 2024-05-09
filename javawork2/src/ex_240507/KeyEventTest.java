@@ -6,7 +6,7 @@ import java.awt.FlowLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 
-import utill.eventListener.MyKeyListener;
+import util.eventListener.MyKeyListener;
 
 public class KeyEventTest extends JFrame{
 	
