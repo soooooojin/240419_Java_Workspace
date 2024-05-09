@@ -12,6 +12,9 @@ import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -24,18 +27,20 @@ public class TextAreaJdbcExMini extends JFrame {
 	
 	// 인스턴스 멤버로 선언만하고, 아래에서 할당했음. 
 	// 각 메서드 안에서도 이용이 가능해요, -> 이 클래스 내부에 전역처럼 이용됨.
-	JTextField userIdField;
+	JTextField IdField;
 	JTextField nameField;
 	JTextField emailField;
 	JTextField passwordField;
 	JTextField passwordConfirmField;
 	
+	JPanel joinpanel; 
+	
 	JButton joinBtn;
-	JButton selectBtn;
-	JButton updateBtn;
-	// 선언만 했음.
-	JButton deleteBtn;
-	JButton clearBtn;
+//	JButton selectBtn;
+//	JButton updateBtn;
+//	// 선언만 했음.
+//	JButton deleteBtn;
+//	JButton clearBtn;
 	
 	// 행과 열을 테이블 형식으로 배치 관리자. 
 	GridBagLayout gb;
@@ -62,11 +67,11 @@ public class TextAreaJdbcExMini extends JFrame {
 
 //		c.setLayout(new GridLayout(4, 2));
 
-		JLabel userId = new JLabel("아이디 ");
-		userIdField = new JTextField(20);
+		JLabel Id = new JLabel("아이디 ");
+		IdField = new JTextField(20);
 		// gbAdd : 메서드 (배치할 요소(버튼,라벨),x(열), y(행), w(가로폭),h(세로높이))
-		gbAdd(userId, 0, 0, 1, 1);
-		gbAdd(userIdField, 1, 0, 3, 1);
+		gbAdd(Id, 0, 0, 1, 1);
+		gbAdd(IdField, 1, 0, 3, 1);
 		
 		JLabel name = new JLabel("이름 ");
 		nameField = new JTextField(20);
@@ -92,17 +97,17 @@ public class TextAreaJdbcExMini extends JFrame {
 		joinBtn = new JButton("회원가입");
 		gbAdd(joinBtn, 0, 5, 4, 1);
 		
-		clearBtn = new JButton("클리어");
-		gbAdd(clearBtn, 0, 6, 4, 1);
-		
-		selectBtn = new JButton("조회");
-		gbAdd(selectBtn, 0, 7, 4, 1);
-		
-		updateBtn = new JButton("수정");
-		gbAdd(updateBtn, 0, 8, 4, 1);
-		
-		deleteBtn = new JButton("삭제");
-		gbAdd(deleteBtn, 0, 9, 4, 1);
+//		clearBtn = new JButton("클리어");
+//		gbAdd(clearBtn, 0, 6, 4, 1);
+//		
+//		selectBtn = new JButton("조회");
+//		gbAdd(selectBtn, 0, 7, 4, 1);
+//		
+//		updateBtn = new JButton("수정");
+//		gbAdd(updateBtn, 0, 8, 4, 1);
+//		
+//		deleteBtn = new JButton("삭제");
+//		gbAdd(deleteBtn, 0, 9, 4, 1);
 		
 		JLabel resultLabel = new JLabel("결과뷰");
 		gbAdd(resultLabel, 0, 10, 4, 1);
@@ -114,83 +119,107 @@ public class TextAreaJdbcExMini extends JFrame {
 		joinBtn.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent event) {
 				if (event.getSource() == joinBtn) {
+					String ID = IdField.getText();
 					String name = nameField.getText();
 					String email = emailField.getText();
 					String password = passwordField.getText();
 					String passwordConfirm = passwordConfirmField.getText();
 					// JDBC 이용해서, 디비에 데이터 저장. 
 					ServiceDB serviceDB = new ServiceDB();
-					serviceDB.insertMember(name, email, password);
+					serviceDB.insertMember(ID,name, email, password);
+					
+					JTextField idField = new JTextField(10);
+					JTextField Flight_numberField = new JTextField(10);
+					JTextField DestinationField = new JTextField(10);
+					
+	                JPasswordField passwordField = new JPasswordField(10);
+
+	                JPanel loginPanel = new JPanel();
+	                loginPanel.add(new JLabel(" 아이디 :"));
+	                loginPanel.add(idField);
+	                loginPanel.add(new JLabel("비행기 시리얼 넘버:"));
+	                loginPanel.add(Flight_numberField);
+	                loginPanel.add(new JLabel("목적지:"));
+	                loginPanel.add(DestinationField);
+	                
+	                
+	                Object[] options = {"예약", "취소"};
+	                int result = JOptionPane.showOptionDialog(null, loginPanel, "예약창", JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE, null, options, options[0]);
+	                if (result == JOptionPane.OK_OPTION) {
+	                    JOptionPane.showMessageDialog(null, "예약이 완료되었습니다.");
+	                }
 				} 			
 			}
 		});
 		
-		clearBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				if (event.getSource() == clearBtn) {
-					nameField.setText("");
-					emailField.setText("");
-					passwordField.setText("");
-					passwordConfirmField.setText("");
-//					resultLabel.setText("");
-					ta.setText("");
-					
-				}
-			
-			}
-		});
 		
-		selectBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				if (event.getSource() == selectBtn) {
-					// 조회
-					ServiceDB serviceDB = new ServiceDB();
-					String result = serviceDB.selectMember();
-					ta.setText(result);
-					
-				}
-			
-			}
-		});
 		
-		deleteBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				if (event.getSource() == deleteBtn) {
-					// 조회
-					ServiceDB serviceDB = new ServiceDB();
-					// 숫자 4 가져오기, 그런데 , 타입 ? 문자열
-					String user_id = userIdField.getText();
-					// 문자열 -> 기본형
-					int user_id_num = Integer.parseInt(user_id);
-					serviceDB.deleteMember(user_id_num);
-					
-				}
-			
-			}
-		});
-		
-		updateBtn.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent event) {
-				if (event.getSource() == updateBtn) {
-					// 조회
-					ServiceDB serviceDB = new ServiceDB();
-					// 숫자 4 가져오기, 그런데 , 타입 ? 문자열
-					String user_id = userIdField.getText();
-					String user_name = nameField.getText();
-					String user_email = emailField.getText();
-					String user_password = passwordField.getText();
-					// 문자열 -> 기본형
-					int user_id_num = Integer.parseInt(user_id);
-//					System.out.println("user_id : " + user_id);
-//					System.out.println("user_name : " + user_name);
-//					System.out.println("user_email : " + user_email);
-//					System.out.println("user_password : " + user_password);
-					serviceDB.updateMember(user_id_num, user_name, user_email, user_password);
-					
-				}
-			
-			}
-		});
+//		clearBtn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent event) {
+//				if (event.getSource() == clearBtn) {
+//					nameField.setText("");
+//					emailField.setText("");
+//					passwordField.setText("");
+//					passwordConfirmField.setText("");
+////					resultLabel.setText("");
+//					ta.setText("");
+//					
+//				}
+//			
+//			}
+//		});
+//		
+//		selectBtn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent event) {
+//				if (event.getSource() == selectBtn) {
+//					// 조회
+//					ServiceDB serviceDB = new ServiceDB();
+//					String result = serviceDB.selectMember();
+//					ta.setText(result);
+//					
+//				}
+//			
+//			}
+//		});
+//		
+//		deleteBtn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent event) {
+//				if (event.getSource() == deleteBtn) {
+//					// 조회
+//					ServiceDB serviceDB = new ServiceDB();
+//					// 숫자 4 가져오기, 그런데 , 타입 ? 문자열
+//					String user_id = IdField.getText();
+//					// 문자열 -> 기본형
+//					int user_id_num = Integer.parseInt(user_id);
+//					serviceDB.deleteMember(user_id_num);
+//					
+//				}
+//			
+//			}
+//		});
+//		
+//		updateBtn.addActionListener(new ActionListener() {
+//			public void actionPerformed(ActionEvent event) {
+//				if (event.getSource() == updateBtn) {
+//					// 조회
+//					ServiceDB serviceDB = new ServiceDB();
+//					// 숫자 4 가져오기, 그런데 , 타입 ? 문자열
+//					String user_id = IdField.getText();
+//					String user_name = nameField.getText();
+//					String user_email = emailField.getText();
+//					String user_password = passwordField.getText();
+//					// 문자열 -> 기본형
+//					int user_id_num = Integer.parseInt(user_id);
+////					System.out.println("id : " + user_id);
+////					System.out.println("user_name : " + user_name);
+////					System.out.println("user_email : " + user_email);
+////					System.out.println("user_password : " + user_password);
+//					serviceDB.updateMember(user_id_num, user_name, user_email, user_password);
+//					
+//				}
+//			
+//			}
+//		});
 		setSize(400, 700);
 //		setResizable(false);
 		setVisible(true);

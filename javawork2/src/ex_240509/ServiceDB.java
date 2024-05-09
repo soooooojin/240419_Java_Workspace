@@ -14,7 +14,7 @@ public class ServiceDB {
 	
 	// 추가
 
-	public boolean insertMember(String name, String email, String password) {
+	public boolean insertMember(String ID ,String name, String email, String password) {
 		boolean ok = false;
 
 		Connection con = null; // 연결
@@ -24,14 +24,15 @@ public class ServiceDB {
 
 			con = ConnectionDB.getConn();
 			
-			String sql = "insert into member501(" + "id,name,email,password" + ") "
-					+ "values(member501_seq.NEXTVAL,?,?,?)";
+			String sql = "insert into LOGIN501(" + "ID,NAME,EMAIL,PW" + ") "
+					+ "values(?,?,?,?)";
 
 			pstmt = con.prepareStatement(sql);
 			
-			pstmt.setString(1, name);
-			pstmt.setString(2, email);
-			pstmt.setString(3, password);
+			pstmt.setString(1, ID);
+			pstmt.setString(2, name);
+			pstmt.setString(3, email);
+			pstmt.setString(4, password);
 
 			int r = pstmt.executeUpdate(); // 실행 -> 저장
 
