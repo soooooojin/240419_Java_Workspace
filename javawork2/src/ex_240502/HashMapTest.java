@@ -28,6 +28,10 @@ public class HashMapTest {
 		for (int i = 0; i < 3; i++) {
 			System.out.print("찾고 싶은 단어는?");
 			String eng = scanner.next();
+			
+			
+			
+			
 			// 해시맵에서 '키' eng의 '값' kor 검색
 			String kor = dic.get(eng);
 			if (kor == null)

@@ -1,4 +1,4 @@
-package ex_240509;
+package ex_240509_mini;
 
 import java.awt.Container;
 import java.awt.GridBagConstraints;
@@ -19,7 +19,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
-import ex_240509.ServiceDB;
+import ex_240509_mini.ServiceDB;
 
 public class TextAreaJdbcExMini extends JFrame {
 	
@@ -48,7 +48,7 @@ public class TextAreaJdbcExMini extends JFrame {
 	GridBagConstraints gbc;
 
 	public TextAreaJdbcExMini() {
-		setTitle("텍스트영역 만들기 예제");
+		setTitle("회원가입");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		Container c = getContentPane();
 		
@@ -141,7 +141,6 @@ public class TextAreaJdbcExMini extends JFrame {
 	                loginPanel.add(Flight_numberField);
 	                loginPanel.add(new JLabel("목적지:"));
 	                loginPanel.add(DestinationField);
-	                
 	                
 	                Object[] options = {"예약", "취소"};
 	                int result = JOptionPane.showOptionDialog(null, loginPanel, "예약창", JOptionPane.OK_CANCEL_OPTION,JOptionPane.PLAIN_MESSAGE, null, options, options[0]);

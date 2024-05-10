@@ -34,7 +34,7 @@ public class DatabaseConnector {
 		// 디비 서버에 뭐 할지 ? 요청, DML , CRUD
 		// C: create(insert) , R: read (select)
 		// U: update (update) , D: delete (delete)
-		String query = "SELECT ID,FLIGHT_NUMBER,DESTINATION FROM MEMBER501";
+		String query = "SELECT ID,name,email,password FROM MEMBER501";
 		// 요청할 SQL 문을 String 변수에 저장한다.
 		pstmt = con.prepareStatement(query);
 		// SQL 문 전송에 필요한 PreparedStatement 객체를
@@ -50,9 +50,9 @@ public class DatabaseConnector {
 		// rs는 0행부 터 시작. 
 		while (rs.next()) {
 			int ID = rs.getInt("ID");
-			String FLIGHT_NUMBER = rs.getString("FLIGHT_NUMBER");
-			String DESTINATION = rs.getString("DESTINATION");
-			System.out.println(ID + " " + FLIGHT_NUMBER + " " + DESTINATION);
+			String name = rs.getString("name");
+			String email = rs.getString("email");
+			System.out.println(ID + " " + name + " " + email);
 		}
 	} catch (Exception e) {
 		e.printStackTrace();

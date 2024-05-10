@@ -1,4 +1,4 @@
-package ex_240509;
+package ex_240509_mini;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -24,7 +24,7 @@ public class ServiceDB {
 
 			con = ConnectionDB.getConn();
 			
-			String sql = "insert into LOGIN501(" + "ID,NAME,EMAIL,PW" + ") "
+			String sql = "insert into MEMBER501(" + "ID,NAME,EMAIL,password" + ") "
 					+ "values(?,?,?,?)";
 
 			pstmt = con.prepareStatement(sql);
@@ -79,7 +79,7 @@ public class ServiceDB {
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
-				int id = rs.getInt("id");
+				String id = rs.getString("id");
 				String name = rs.getString("name");
 				String email = rs.getString("email");
 				String password = rs.getString("password");
